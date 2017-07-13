@@ -55,7 +55,7 @@ hr {
 }
 
 blockquote {
-    padding: 13px 13px 21px 15px;
+    padding: 13px 13px 21px 20px;
     margin-bottom: 0px;
     font-family: georgia, serif;
     font-style: italic;
@@ -83,6 +83,14 @@ blockquote p {
     }
 }
 
+.tech {
+    padding-left: 38px;
+}
+
+.educate, .job {
+    padding-left:20px;
+}
+
 ul,ol {
     margin-top: 4px;
 }
@@ -91,7 +99,7 @@ h3 span,h4 span{
     padding-left: 6px;
 }
 
-#xueli {
+.detail {
     padding: 10 10 6 15;
 }
 
@@ -109,4 +117,25 @@ footer {
 
 hr {
     margin: 0 0 8;
+}
+
+.proj {
+    position: relative;
+}
+
+.proj-name {
+    margin-left: 20px;
+}
+
+.proj-ol {
+    margin-top: 0px;
+}
+
+.line {
+    position: absolute;
+    left: 140px;
+    top: 0px;
+    width: 1px;
+    height: 100%;
+    background: #000;
 }
