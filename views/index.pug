@@ -3,6 +3,7 @@ html(lang='zh-cn')
     head
         meta(charset='UTF-8')
         title 陈志财的简历
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
         link(rel='stylesheet', type='text/css', href='https://necolas.github.io/normalize.css/4.1.1/normalize.css')
         link(rel='stylesheet', href='/vendor/font-awesome-4.7.0/css/font-awesome.min.css')
         link(rel='stylesheet', type='text/css', href='/css/resume/main.css')
@@ -10,11 +11,9 @@ html(lang='zh-cn')
         //- .line
         h1
             | 陈志财
-            span(style='font-size:18px;')  ZhiCai Chen
             i.fa.fa-mars(style='font-size:20px;margin-left:10px;')
         h2
-            | Web开发工程师
-            span(style='font-size:18px;')  Web Engineer
+            | Web前端工程师
         blockquote
             p
                 i.fa.fa-phone-square.fa-lg(aria-hidden='true')
@@ -103,7 +102,7 @@ html(lang='zh-cn')
                     ol.proj-ol
                         li 每天活跃用户260多万，产生牌局1000多万，产生道具流水6000多万
                         li 仅按功能分表，没有按天分表，保留一个月数据下，单表数据量超10亿
-                        li 需求复杂，分析纬度最高达到10个，且纬度可以任意组合(渠道、版本、用户类型等..)
+                        li 需求复杂，分析纬度最高达到10个，且纬度可以任意组合
                         li 某些用户行为分析使用MySQL效率无法接受
                         li 现阶段每天有40多个分析，要求在每天1点到9点之间完成
                 li
@@ -114,7 +113,6 @@ html(lang='zh-cn')
                         li 现阶段采用从流水表读取目标分析时间段内数据到临时表，后续会考虑按天分表
                         li 针对多维度数据分析，先细分到最小纬度，再逐步扩大纬度进行分析
                         li 分级统计，只统计中间结果，当查询时再组合起来做最终统计
-                        li 针对充值等量相对较小且查询条件过于复杂，使用实时查询
                         li 逐步过渡到LevelDB+Redis，采用游戏上报进行实时分析方案
         .proj
             p.proj-name
@@ -125,25 +123,24 @@ html(lang='zh-cn')
                     span 介绍：持续为游戏提供一些活动，提升游戏的趣味性
                 li
                     i.fa.fa-gears
-                    span 技术：Node.js、MySQL、Redis、Zepto、Jade(Pug)、Stylus
+                    span 技术：Node.js、MySQL、Redis、Zepto、Jade、Stylus
                 li
                     i.fa.fa-bug
                     span 问题：
                     ol.proj-ol
                         li 活动列表根据每个用户的属性动态变化
                         li 实时性要求较高，不允许数据出现延迟
-                        li 每秒并发量最高达2000，各种判断条件都从数据库读取的话效率过低
-                        li 开发周期要求较为严格，上线时间固定
+                        li 客户端性能不一，某些机型动画非常卡顿
                 li
                     i.fa.fa-wrench
                     span 方案：
                     ol.proj-ol
-                        li 配置型数据直接缓存到进程内存，定时+通知进行刷新
                         li 活动数据使用Redis缓存，同时记录到MySQL持久化
-                        li 游戏数据从游戏服务端实时上报，存放到专用Redis
-                        li 游戏服务器提供存放用户基本信息的Redis库，专供活动查询
+                        li 游戏数据从游戏服务端实时上报，缓存到Redis
                         li 针对Node.js的单进程问题，采用Cluster模式做负载均衡
-                        li 封装通用组件，持续提升开发效率
+                        li 客户端尽可能减少layout操作
+                        li 复杂动画选择性用多帧图片代替
+                        li 必要情况下开启硬件加速
 
 
         footer https://sesna.github.io

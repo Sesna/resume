@@ -76,11 +76,16 @@ blockquote p {
     font-style: italic;
 }
 
-@media screen and (min-width: 768px) {
+/*@media screen and (min-width: 768px) {
     body {
         width: 748px;
         margin: 10px auto;
     }
+}*/
+body {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 10px;
 }
 
 .tech {
